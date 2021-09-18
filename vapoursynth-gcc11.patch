@@ -1,0 +1,55 @@
+diff -Naur vapoursynth-R51.old/src/core/exprfilter.cpp vapoursynth-R51/src/core/exprfilter.cpp
+--- vapoursynth-R51.old/src/core/exprfilter.cpp	2021-03-23 14:34:50.273555518 +0100
++++ vapoursynth-R51/src/core/exprfilter.cpp	2021-03-23 14:36:17.148054372 +0100
+@@ -32,6 +32,7 @@
+ #include <unordered_map>
+ #include <unordered_set>
+ #include <vector>
++#include <limits>
+ #include "VapourSynth.h"
+ #include "VSHelper.h"
+ #include "cpufeatures.h"
+diff -Naur vapoursynth-R51.old/src/core/genericfilters.cpp vapoursynth-R51/src/core/genericfilters.cpp
+--- vapoursynth-R51.old/src/core/genericfilters.cpp	2021-03-23 14:34:50.273555518 +0100
++++ vapoursynth-R51/src/core/genericfilters.cpp	2021-03-23 14:36:17.149054389 +0100
+@@ -28,6 +28,7 @@
+ #include <array>
+ #include <memory>
+ #include <vector>
++#include <limits>
+ #include <VapourSynth.h>
+ #include <VSHelper.h>
+ #include "cpufeatures.h"
+diff -Naur vapoursynth-R51.old/src/core/kernel/generic.cpp vapoursynth-R51/src/core/kernel/generic.cpp
+--- vapoursynth-R51.old/src/core/kernel/generic.cpp	2021-03-23 14:34:50.273555518 +0100
++++ vapoursynth-R51/src/core/kernel/generic.cpp	2021-03-23 14:36:17.149054389 +0100
+@@ -22,6 +22,7 @@
+ #include <array>
+ #include <cmath>
+ #include <cstdint>
++#include <limits>
+ #include <type_traits>
+ #include "generic.h"
+ 
+diff -Naur vapoursynth-R51.old/src/filters/misc/miscfilters.cpp vapoursynth-R51/src/filters/misc/miscfilters.cpp
+--- vapoursynth-R51.old/src/filters/misc/miscfilters.cpp	2021-03-23 14:34:50.276555570 +0100
++++ vapoursynth-R51/src/filters/misc/miscfilters.cpp	2021-03-23 14:36:17.150054407 +0100
+@@ -26,6 +26,7 @@
+ #include <memory>
+ #include <stdexcept>
+ #include <vector>
++#include <limits>
+ #include <VapourSynth.h>
+ #include <VSHelper.h>
+ #include "../src/core/filtersharedcpp.h"
+diff -Naur vapoursynth-R51.old/src/filters/removegrain/clense.cpp vapoursynth-R51/src/filters/removegrain/clense.cpp
+--- vapoursynth-R51.old/src/filters/removegrain/clense.cpp	2021-03-23 14:34:50.276555570 +0100
++++ vapoursynth-R51/src/filters/removegrain/clense.cpp	2021-03-23 14:36:17.150054407 +0100
+@@ -26,6 +26,7 @@
+ */
+ 
+ #include "shared.h"
++#include <limits>
+ 
+ #define CLENSE_RETERROR(x) do { vsapi->setError(out, (x)); vsapi->freeNode(d.cnode); vsapi->freeNode(d.pnode); vsapi->freeNode(d.nnode); return; } while (0)
+ #define CLAMP(value, lower, upper) do { if (value < lower) value = lower; else if (value > upper) value = upper; } while(0)

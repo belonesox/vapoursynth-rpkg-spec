@@ -1,0 +1,12 @@
+diff -Naur vapoursynth-R51.old/Makefile.am vapoursynth-R51/Makefile.am
+--- vapoursynth-R51.old/Makefile.am	2021-03-23 14:27:12.519657875 +0100
++++ vapoursynth-R51/Makefile.am	2021-03-23 14:27:19.806783602 +0100
+@@ -79,7 +79,7 @@
+ 
+ pkgconfig_DATA += pc/vapoursynth.pc
+ 
+-libvapoursynth_la_LDFLAGS = -no-undefined -avoid-version
++libvapoursynth_la_LDFLAGS = -no-undefined -version-info $(PACKAGE_VERSION)
+ libvapoursynth_la_CPPFLAGS = $(ZIMG_CFLAGS) -DVS_PATH_PLUGINDIR='"$(PLUGINDIR)"'
+ libvapoursynth_la_LIBADD = $(ZIMG_LIBS) $(DLOPENLIB) libexprfilter.la
+ 
